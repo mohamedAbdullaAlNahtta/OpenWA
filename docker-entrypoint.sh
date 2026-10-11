@@ -62,4 +62,5 @@ chown openwa:openwa "${XDG_CONFIG_HOME:-/tmp/.config}" "${XDG_CACHE_HOME:-/tmp/.
 # "$@" = CMD from Dockerfile (default: node dist/main).
 # gosu performs exec, so the node process replaces this shell and becomes the
 # direct child of dumb-init (PID 1), which can therefore forward SIGTERM cleanly.
+rm -f /app/data/.env.generated
 exec gosu openwa "$@"
