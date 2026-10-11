@@ -39,6 +39,7 @@ fi
 
 # Nothing below can run without root: the chowns need CAP_CHOWN and gosu needs CAP_SETUID.
 if [ "$(id -u)" != 0 ]; then
+  rm -f /app/data/.env.generated
   exec "$@"
 fi
 
